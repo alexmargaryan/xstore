@@ -1,0 +1,15 @@
+volumes:
+  database:
+    driver: local
+
+services:
+  postgres:
+    image: postgres:14.11-alpine
+    volumes:
+      - database:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: xstore
+    ports:
+      - 5432:5432
